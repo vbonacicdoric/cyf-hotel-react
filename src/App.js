@@ -22,8 +22,6 @@ const App = () => {
 
       <Bookings />
 
-      <SearchResults />
-
       <Restaurant />
 
       <Footer array={footerElements} />

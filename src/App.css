@@ -64,6 +64,9 @@ tr {
   align-items: center;
   display: flex;
 }
+.resaltar {
+  background-color: pink;
+}
 
 .cards {
   display: flex;

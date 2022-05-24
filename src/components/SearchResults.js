@@ -1,11 +1,15 @@
-import React from "react";
-import fakeBookings from "../data/fakeBookings";
+import React, { useState } from "react";
+import CustomerProfile from "./CustomerProfile";
 import Row from "./Row";
 
-const SearchResults = () => {
+const SearchResults = props => {
+  const [idCustomer, setIdCustomer] = useState(0);
+  const changeIdCustomer = id => {
+    setIdCustomer(id);
+  };
   return (
     <div className="table-responsive">
-      <table class="table table-striped text-center">
+      <table class="table text-center">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -20,8 +24,9 @@ const SearchResults = () => {
           </tr>
         </thead>
         <tbody>
-          {fakeBookings.map(booking => (
+          {props.results.map(booking => (
             <Row
+              changeIdCustomer={changeIdCustomer}
               id={booking.id}
               title={booking.title}
               firstName={booking.firstName}
@@ -34,6 +39,7 @@ const SearchResults = () => {
           ))}
         </tbody>
       </table>
+      {idCustomer ? <CustomerProfile id={idCustomer} /> : null}
     </div>
   );
 };
